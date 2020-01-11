@@ -13,11 +13,11 @@
 
 <br>
 <% if logged_in? %>
-<%= link_to "Edit", edit_article_path(@article) %>
-<%= link_to "Delete", article_path(@article), method: :delete, data:
+<%= link_to "Edit", edit_article_path(@article), class: 'to_the_left' %>
+<%= link_to "Delete", article_path(@article), class: 'to_the_left', method: :delete, data:
             {confirm: "Really want to delete the article?"} %>
 <%end%>
-<%= link_to "<< Back to Articles List", articles_path %>
+<%= link_to "<< Back to Articles List", articles_path, class: 'to_the_left' %>
 <%= render partial: 'comments/form' %>
 
 <h3>Comments (<%= @article.comments.count %>)</h3>

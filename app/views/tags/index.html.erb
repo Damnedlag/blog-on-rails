@@ -2,7 +2,8 @@
 
 <ul>
   <% @tags.each do |tag| %>
-    <li><%= link_to tag.name, tag_path(tag) %></li>
+    <li><%= link_to tag.name, tag_path(tag) %>  <% if logged_in? %> <%= link_to "Delete tag", tags_path(@tag), class: 'to_the_left', method: :delete, data:
+            {confirm: "Really want to delete the tag?"}  %><% end %></li>
   <% end %>
 </ul>
 <br>
