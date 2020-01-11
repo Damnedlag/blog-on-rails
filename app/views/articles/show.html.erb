@@ -1,5 +1,6 @@
 <h1><%= @article.title %></h1>
 <p>Posted on <%= @article.created_at %></p>
+<p><% if @article.image.exists? %><%= image_tag @article.image.url %><% end %></p>
 <br>
 <p><%= @article.body %></p>
 <br>
