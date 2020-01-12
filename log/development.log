@@ -11221,3 +11221,60 @@ Processing by ArticlesController#index as HTML
 Completed 200 OK in 184ms (Views: 182.7ms | ActiveRecord: 0.3ms)
 
 
+Started GET "/articles/20" for 127.0.0.1 at 2020-01-11 21:41:52 +0100
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /home/damnedlag/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mArticle Load (0.4ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:24
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?[0m  [["article_id", 20]]
+  ↳ app/views/articles/show.html.erb:9
+  [1m[36mAuthor Load (0.3ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/articles/show.html.erb:15
+  Rendered comments/_form.html.erb (40.5ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 20]]
+  ↳ app/views/articles/show.html.erb:23
+  [1m[36mComment Load (0.3ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 20]]
+  ↳ app/views/articles/show.html.erb:24
+  Rendered collection of articles/_comment.html.erb [1 times] (8.7ms)
+  Rendered articles/show.html.erb within layouts/application (282.1ms)
+Completed 200 OK in 1707ms (Views: 1507.7ms | ActiveRecord: 30.1ms)
+
+
+Started GET "/articles/20" for 127.0.0.1 at 2020-01-11 21:41:54 +0100
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:24
+  Rendering articles/show.html.erb within layouts/application
+  [1m[36mTag Load (0.1ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?[0m  [["article_id", 20]]
+  ↳ app/views/articles/show.html.erb:9
+  [1m[36mAuthor Load (0.1ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/articles/show.html.erb:15
+  Rendered comments/_form.html.erb (1.4ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 20]]
+  ↳ app/views/articles/show.html.erb:23
+  [1m[36mComment Load (0.1ms)[0m  [1m[34mSELECT "comments".* FROM "comments" WHERE "comments"."article_id" = ?[0m  [["article_id", 20]]
+  ↳ app/views/articles/show.html.erb:24
+  Rendered collection of articles/_comment.html.erb [1 times] (0.7ms)
+  Rendered articles/show.html.erb within layouts/application (33.3ms)
+Completed 200 OK in 125ms (Views: 122.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/articles/20/edit" for 127.0.0.1 at 2020-01-11 21:42:00 +0100
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"20"}
+  [1m[36mAuthor Load (0.2ms)[0m  [1m[34mSELECT  "authors".* FROM "authors" WHERE "authors"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ /home/damnedlag/.rbenv/versions/2.6.4/lib/ruby/gems/2.6.0/gems/activerecord-5.2.4.1/lib/active_record/log_subscriber.rb:98
+  [1m[36mArticle Load (0.1ms)[0m  [1m[34mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT ?[0m  [["id", 20], ["LIMIT", 1]]
+  ↳ app/controllers/articles_controller.rb:31
+  Rendering articles/edit.html.erb within layouts/application
+  [1m[36mTag Load (0.2ms)[0m  [1m[34mSELECT "tags".* FROM "tags" INNER JOIN "taggings" ON "tags"."id" = "taggings"."tag_id" WHERE "taggings"."article_id" = ?[0m  [["article_id", 20]]
+  ↳ app/models/article.rb:9
+  Rendered articles/_form.html.erb (18.6ms)
+  Rendered articles/edit.html.erb within layouts/application (23.8ms)
+Completed 200 OK in 115ms (Views: 108.2ms | ActiveRecord: 0.5ms)
+
+
